@@ -24,4 +24,5 @@ One major problem/benefit with this whole approach is that it bypasses Ads.
 ### Use
 
 Just download, open in xcode and run the project. No other setup required. No dependencies.
+But you may need to set code signing if running on a device.
 
