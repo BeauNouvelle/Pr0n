@@ -12,20 +12,19 @@ import AVKit
 struct PlayerView: View {
 
     var url: URL?
-    @State var newUrl: URL?
+    @State var player = AVPlayer()
 
     var body: some View {
         VStack {
-            if let newUrl = newUrl {
-                VideoPlayer(player: AVPlayer(url: newUrl))
-            } else {
-                Text("Loading")
-            }
+            VideoPlayer(player: player)
         }
         .onAppear {
             if let url {
                 loadVideo(url: url)
             }
+        }
+        .onDisappear {
+            player.pause()
         }
     }
 
@@ -33,9 +32,10 @@ struct PlayerView: View {
         DispatchQueue.global(qos: .background).async {
             let contents = try? String(contentsOf: url)
             let someUrl = contents!.slice(from: "videoUrl\":\"", to: "\"}") ?? ""
-            let url = URL(string: someUrl.replacingOccurrences(of: "\\", with: ""))
+            guard let url = URL(string: someUrl.replacingOccurrences(of: "\\", with: "")) else { return }
             DispatchQueue.main.async {
-                newUrl = url
+                player = AVPlayer(url: url)
+                player.play()
             }
         }
     }
