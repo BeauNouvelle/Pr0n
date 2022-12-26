@@ -13,3 +13,15 @@ It may actually be worth creating a Vapor web app to pair with this that can do 
 ----------------
 
 One major problem/benefit with this whole approach is that it bypasses Ads.
+
+
+----------------
+
+### Requirements
+- macOS 13 or iOS 16.
+- Xcode
+
+### Use
+
+Just download, open in xcode and run the project. No other setup required. No dependencies.
+
