@@ -6,3 +6,107 @@
 //
 
 import Foundation
+import Combine
+
+final class PronModel: ObservableObject {
+    
+    var cancellable: AnyCancellable?
+    var searchCancellable: AnyCancellable?
+    @Published var pron: Pron = Pron(videos: [])
+    @Published var searchText: String = ""
+    
+    init() {
+        searchCancellable = AnyCancellable(
+              $searchText
+                .removeDuplicates()
+                .debounce(for: 0.5, scheduler: DispatchQueue.main)
+                .sink { searchText in
+                  self.search()
+              })
+    }
+    
+    func search() {
+        cancellable?.cancel()
+        
+        let urlQueries = [
+            URLQueryItem(name: "data", value: "redtube.Videos.searchVideos"),
+            URLQueryItem(name: "output", value: "json"),
+            URLQueryItem(name: "search", value: searchText),
+            URLQueryItem(name: "thumbsize", value: "medium")
+        ]
+        
+        var components = URLComponents(string: "https://api.redtube.com/")!
+        components.queryItems = urlQueries
+        
+        let request = URLRequest(url: components.url!)
+        
+        cancellable = URLSession.shared.dataTaskPublisher(for: request)
+            .map(\.data)
+            .decode(type: Pron.self, decoder: JSONDecoder())
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] finished in
+                switch finished {
+                case .failure(let error):
+                    self?.report(error: error)
+                case .finished:
+                    print("DONE!")
+                }
+            } receiveValue: { [weak self] pron in
+                self?.pron = pron
+            }
+    }
+    
+    func report(error: Error) {
+        #if DEBUG
+        if case let DecodingError.keyNotFound(key, context) = error {
+            print("could not find key \(key) in JSON: \(context.debugDescription)")
+        }
+        if case let DecodingError.valueNotFound(type, context) = error {
+            print("could not find type \(type) in JSON: \(context.debugDescription)")
+        }
+        if case let DecodingError.typeMismatch(type, context) = error {
+            print("type mismatch for type \(type) in JSON: \(context.debugDescription)")
+        }
+        if case let DecodingError.dataCorrupted(context) = error {
+            print("data found to be corrupted in JSON: \(context.debugDescription)")
+        }
+        #endif
+    }
+    
+}
+
+struct Pron: Decodable {
+    let videos: [Video]
+    
+    init(videos: [Video]) {
+        self.videos = videos
+    }
+    
+    enum CodingKeys: CodingKey {
+        case videos
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let videoWrappers = try container.decode([VideoWrapper].self, forKey: .videos)
+        videos = videoWrappers.compactMap { $0.video }
+    }
+}
+
+struct VideoWrapper: Decodable {
+    let video: Video
+}
+
+struct Video: Decodable, Identifiable {
+    var id: String { return video_id }
+    
+    let video_id: String
+    let title: String
+    let embed_url: URL
+    let url: URL
+    let thumb: URL
+    let rating: String
+    let views: Int
+    let duration: String
+}
