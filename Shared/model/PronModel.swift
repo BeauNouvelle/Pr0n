@@ -74,39 +74,3 @@ final class PronModel: ObservableObject {
     }
     
 }
-
-struct Pron: Decodable {
-    let videos: [Video]
-    
-    init(videos: [Video]) {
-        self.videos = videos
-    }
-    
-    enum CodingKeys: CodingKey {
-        case videos
-    }
-    
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        let videoWrappers = try container.decode([VideoWrapper].self, forKey: .videos)
-        videos = videoWrappers.compactMap { $0.video }
-    }
-}
-
-struct VideoWrapper: Decodable {
-    let video: Video
-}
-
-struct Video: Decodable, Identifiable {
-    var id: String { return video_id }
-    
-    let video_id: String
-    let title: String
-    let embed_url: URL
-    let url: URL
-    let thumb: URL
-    let rating: String
-    let views: Int
-    let duration: String
-}

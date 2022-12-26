@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import AVKit
 
 struct ContentView: View {
     
@@ -17,89 +16,21 @@ struct ContentView: View {
         NavigationView {
             List(model.pron.videos) { video in
                 NavigationLink {
-                    PlayerView(url: video.embed_url, newUrl: nil)
+                    PlayerView(url: video.embed_url)
                 } label: {
                     VideoRow(video: video)
+                        .clipped()
                 }
             }
-            .listStyle(.plain)
             .searchable(text: $model.searchText)
+            .listStyle(.plain)
             .onAppear {
                 model.search()
             }
-            .navigationTitle(Text("Pr0n"))
+            .frame(minWidth: 300)
         }
     }
 
-}
-
-struct PlayerView: View {
-    
-    var url: URL
-    @State var newUrl: URL?
-    
-    var body: some View {
-        VStack {
-            if let newUrl = newUrl {
-                VideoPlayer(player: AVPlayer(url: newUrl))
-            } else {
-                Text("Loading")
-            }
-        }
-        .onAppear {
-            loadVideo(url: url)
-        }
-    }
-    
-    func loadVideo(url: URL) {
-        let contents = try? String(contentsOf: url)
-        let someUrl = contents!.slice(from: "videoUrl\":\"", to: "\"}") ?? ""
-        let url = URL(string: someUrl.replacingOccurrences(of: "\\", with: ""))
-        print(url)
-        newUrl = url
-    }
-    
-}
-
-import WebKit
-
-extension String {
-    
-    func slice(from: String, to: String) -> String? {
-        return (range(of: from)?.upperBound).flatMap { substringFrom in
-            (range(of: to, range: substringFrom..<endIndex)?.lowerBound).map { substringTo in
-                String(self[substringFrom..<substringTo])
-            }
-        }
-    }
-}
-
-
-
-extension URL: Identifiable {
-    public var id: String {
-        self.absoluteString
-    }
-}
-
-struct VideoRow: View {
-    
-    let video: Video
-    
-    var body: some View {
-        VStack {
-            AsyncImage(url: video.thumb) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-            } placeholder: {
-                Image(systemName: "cross")
-                    .padding()
-            }
-            Text(video.title)
-        }
-        .frame(minHeight: 100)
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {

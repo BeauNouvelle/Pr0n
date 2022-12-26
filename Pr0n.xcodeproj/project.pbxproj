@@ -15,6 +15,20 @@
 		8B12BAA0269DB26700A25908 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B12BA8F269DB26700A25908 /* Assets.xcassets */; };
 		8B12BAAA269DB61900A25908 /* PronModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12BAA9269DB61900A25908 /* PronModel.swift */; };
 		8B12BAAB269DB61900A25908 /* PronModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12BAA9269DB61900A25908 /* PronModel.swift */; };
+		8B954CBD2959D46D00CA73FB /* VideoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B954CBC2959D46D00CA73FB /* VideoRow.swift */; };
+		8B954CBE2959D46D00CA73FB /* VideoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B954CBC2959D46D00CA73FB /* VideoRow.swift */; };
+		8B954CC02959D48800CA73FB /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B954CBF2959D48800CA73FB /* PlayerView.swift */; };
+		8B954CC12959D48800CA73FB /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B954CBF2959D48800CA73FB /* PlayerView.swift */; };
+		8B954CC42959D4E800CA73FB /* URL+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B954CC32959D4E800CA73FB /* URL+Identifiable.swift */; };
+		8B954CC52959D4E800CA73FB /* URL+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B954CC32959D4E800CA73FB /* URL+Identifiable.swift */; };
+		8B954CC72959D51400CA73FB /* String+slice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B954CC62959D51400CA73FB /* String+slice.swift */; };
+		8B954CC82959D51400CA73FB /* String+slice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B954CC62959D51400CA73FB /* String+slice.swift */; };
+		8B954CCD2959DCD600CA73FB /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B954CCC2959DCD600CA73FB /* Video.swift */; };
+		8B954CCE2959DCD600CA73FB /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B954CCC2959DCD600CA73FB /* Video.swift */; };
+		8B954CD02959DCE600CA73FB /* VideoWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B954CCF2959DCE600CA73FB /* VideoWrapper.swift */; };
+		8B954CD12959DCE600CA73FB /* VideoWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B954CCF2959DCE600CA73FB /* VideoWrapper.swift */; };
+		8B954CD32959DCFA00CA73FB /* Pron.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B954CD22959DCFA00CA73FB /* Pron.swift */; };
+		8B954CD42959DCFA00CA73FB /* Pron.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B954CD22959DCFA00CA73FB /* Pron.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +40,13 @@
 		8B12BAA9269DB61900A25908 /* PronModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PronModel.swift; sourceTree = "<group>"; };
 		8B12BAAF269DDDD100A25908 /* Pr0n--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Pr0n--iOS--Info.plist"; sourceTree = "<group>"; };
 		8B12BAB0269DEA1700A25908 /* Pr0n.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Pr0n.entitlements; sourceTree = "<group>"; };
+		8B954CBC2959D46D00CA73FB /* VideoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRow.swift; sourceTree = "<group>"; };
+		8B954CBF2959D48800CA73FB /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		8B954CC32959D4E800CA73FB /* URL+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Identifiable.swift"; sourceTree = "<group>"; };
+		8B954CC62959D51400CA73FB /* String+slice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+slice.swift"; sourceTree = "<group>"; };
+		8B954CCC2959DCD600CA73FB /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		8B954CCF2959DCE600CA73FB /* VideoWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoWrapper.swift; sourceTree = "<group>"; };
+		8B954CD22959DCFA00CA73FB /* Pron.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pron.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,10 +80,14 @@
 		8B12BA8C269DB26700A25908 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				8B954CCA2959DCC600CA73FB /* model */,
+				8B954CC92959DCC100CA73FB /* views */,
+				8B954CC22959D4D100CA73FB /* extensions */,
 				8B12BA8D269DB26700A25908 /* Pr0nApp.swift */,
 				8B12BA8E269DB26700A25908 /* ContentView.swift */,
 				8B12BA8F269DB26700A25908 /* Assets.xcassets */,
-				8B12BAA9269DB61900A25908 /* PronModel.swift */,
+				8B954CBC2959D46D00CA73FB /* VideoRow.swift */,
+				8B954CBF2959D48800CA73FB /* PlayerView.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -74,6 +99,33 @@
 				8B12BA9A269DB26700A25908 /* Pr0n.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8B954CC22959D4D100CA73FB /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8B954CC32959D4E800CA73FB /* URL+Identifiable.swift */,
+				8B954CC62959D51400CA73FB /* String+slice.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		8B954CC92959DCC100CA73FB /* views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		8B954CCA2959DCC600CA73FB /* model */ = {
+			isa = PBXGroup;
+			children = (
+				8B12BAA9269DB61900A25908 /* PronModel.swift */,
+				8B954CCC2959DCD600CA73FB /* Video.swift */,
+				8B954CCF2959DCE600CA73FB /* VideoWrapper.swift */,
+				8B954CD22959DCFA00CA73FB /* Pron.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,7 +173,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1300;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
 					8B12BA93269DB26700A25908 = {
 						CreatedOnToolsVersion = 13.0;
@@ -174,8 +226,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B954CD32959DCFA00CA73FB /* Pron.swift in Sources */,
+				8B954CBD2959D46D00CA73FB /* VideoRow.swift in Sources */,
+				8B954CC42959D4E800CA73FB /* URL+Identifiable.swift in Sources */,
 				8B12BAAA269DB61900A25908 /* PronModel.swift in Sources */,
+				8B954CD02959DCE600CA73FB /* VideoWrapper.swift in Sources */,
 				8B12BA9D269DB26700A25908 /* ContentView.swift in Sources */,
+				8B954CC02959D48800CA73FB /* PlayerView.swift in Sources */,
+				8B954CCD2959DCD600CA73FB /* Video.swift in Sources */,
+				8B954CC72959D51400CA73FB /* String+slice.swift in Sources */,
 				8B12BA9B269DB26700A25908 /* Pr0nApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,8 +243,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B954CD42959DCFA00CA73FB /* Pron.swift in Sources */,
+				8B954CBE2959D46D00CA73FB /* VideoRow.swift in Sources */,
+				8B954CC52959D4E800CA73FB /* URL+Identifiable.swift in Sources */,
 				8B12BAAB269DB61900A25908 /* PronModel.swift in Sources */,
+				8B954CD12959DCE600CA73FB /* VideoWrapper.swift in Sources */,
 				8B12BA9E269DB26700A25908 /* ContentView.swift in Sources */,
+				8B954CC12959D48800CA73FB /* PlayerView.swift in Sources */,
+				8B954CCE2959DCD600CA73FB /* Video.swift in Sources */,
+				8B954CC82959D51400CA73FB /* String+slice.swift in Sources */,
 				8B12BA9C269DB26700A25908 /* Pr0nApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -227,6 +293,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -286,6 +353,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -323,7 +391,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -357,7 +425,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -379,9 +447,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Pr0n.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
@@ -391,7 +461,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.getswifty.Pr0n;
 				PRODUCT_NAME = Pr0n;
@@ -407,9 +477,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Pr0n.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
@@ -419,7 +491,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.getswifty.Pr0n;
 				PRODUCT_NAME = Pr0n;
